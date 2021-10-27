@@ -1,5 +1,5 @@
 // VOORRAAD ARRAY MET TV'S
-const inventory2 = [
+const inventory5 = [
     {
         type: '43PUS6504/12',
         name: '4K TV',
@@ -164,37 +164,43 @@ const inventory2 = [
 
 //-------------------------------------------------------------
 
-
-//2a
-function soldTVs (inventory2) {
-    amount = 0;
-    for (let i = 0; i < inventory2.length; i++) {
-        amount += inventory2[i].sold;
-    }
-    return amount;
+//5a
+function fullNameTV (stock, indexNumber) {
+    return stock[indexNumber].brand + ' ' + stock[indexNumber].type + ' - ' + stock[indexNumber].name;
 }
-console.log(soldTVs(inventory2));
 
-//2b
-const tvssold = document.getElementById('amount-sold');
-tvssold.innerHTML = `Er zijn ${soldTVs(inventory2)} TV's verkocht.`;
+console.log(fullNameTV(inventory5,0));
+console.log(fullNameTV(inventory5,2));
 
-
-//2c
-function purchasedTVs (inventory2) {
-    amount = 0;
-    for (let i = 0; i < inventory2.length; i++) {
-        amount += inventory2[i].originalStock;
+//5b
+function tvPriceFormatter (price) {
+    //prijs zou decimalen kunnen bevatten dus:
+    if (price - Math.floor(price) != 0) {
+        // console.log('met decimalen');
+        return '€' + price;
+    } else {
+        // console.log('zonder  decimalen');
+        return '€' + price + ',-';
     }
-    return amount;
 }
-console.log(purchasedTVs(inventory2));
 
-//2d
-const tvspurchased = document.getElementById('amount-purchased');
-tvspurchased.innerHTML = `Er zijn ${purchasedTVs(inventory2)} TV's ingekocht.`;
 
-//2e
-const numberOnStock = purchasedTVs(inventory2) - soldTVs(inventory2);
-const tvsonstock = document.getElementById('amount-onstock');
-tvsonstock.innerHTML = `Er zijn nog ${numberOnStock} TV's op voorraad.`;
+console.log(tvPriceFormatter(500.45));
+console.log(tvPriceFormatter(500));
+
+//5c
+console.log('----');
+// function availableSizesFormatter(list) {
+//     console.log((list));
+//     availableSizesFormatted = '';
+//     for (let i = 0; i < list.length; i++) {
+//         sizeInCm = Math.floor(list.)
+//         availalbeSizesFormatted += 'list'
+//     }
+//     return availableSizesFormatted;
+//
+// }
+// availableSizesFormatter(inventory5[0].availableSizes);
+
+
+

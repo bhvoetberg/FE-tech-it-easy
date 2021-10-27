@@ -1,5 +1,5 @@
 // VOORRAAD ARRAY MET TV'S
-const inventory2 = [
+const inventory3 = [
     {
         type: '43PUS6504/12',
         name: '4K TV',
@@ -164,37 +164,19 @@ const inventory2 = [
 
 //-------------------------------------------------------------
 
+//3a
+const allBrands = inventory3.map((stock) => {
+    return stock.brand
+})
+console.log(allBrands);
 
-//2a
-function soldTVs (inventory2) {
-    amount = 0;
-    for (let i = 0; i < inventory2.length; i++) {
-        amount += inventory2[i].sold;
-    }
-    return amount;
+//4b
+function listAllBrands(inventory3) {
+    const list = inventory3.map((stock) => {
+        return stock.brand;
+    });
+    return list;
 }
-console.log(soldTVs(inventory2));
 
-//2b
-const tvssold = document.getElementById('amount-sold');
-tvssold.innerHTML = `Er zijn ${soldTVs(inventory2)} TV's verkocht.`;
+console.log(listAllBrands(inventory3));
 
-
-//2c
-function purchasedTVs (inventory2) {
-    amount = 0;
-    for (let i = 0; i < inventory2.length; i++) {
-        amount += inventory2[i].originalStock;
-    }
-    return amount;
-}
-console.log(purchasedTVs(inventory2));
-
-//2d
-const tvspurchased = document.getElementById('amount-purchased');
-tvspurchased.innerHTML = `Er zijn ${purchasedTVs(inventory2)} TV's ingekocht.`;
-
-//2e
-const numberOnStock = purchasedTVs(inventory2) - soldTVs(inventory2);
-const tvsonstock = document.getElementById('amount-onstock');
-tvsonstock.innerHTML = `Er zijn nog ${numberOnStock} TV's op voorraad.`;
