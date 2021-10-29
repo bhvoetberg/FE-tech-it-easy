@@ -165,8 +165,6 @@ const inventory1 = [
 
 //-------------------------------------------------------------
 
-
-
 //1a
 const types = inventory1.map((stock1a) => {
     return stock1a.type

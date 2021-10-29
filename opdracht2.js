@@ -180,7 +180,6 @@ console.log(soldTVs(inventory2));
 const tvssold = document.getElementById('amount-sold');
 tvssold.innerHTML = `Er zijn ${soldTVs(inventory2)} TV's verkocht.`;
 
-
 //2c
 function purchasedTVs (inventory2) {
     amount = 0;

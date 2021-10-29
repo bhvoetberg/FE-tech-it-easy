@@ -190,7 +190,6 @@ console.log(priceFormatter(500.45));
 console.log(priceFormatter(500));
 
 //5c
-console.log('----');
 function availableSizesFormatter(list) {
     let availableSizesFormatted = '';
     for (let i = 0; i < list.length; i++) {
