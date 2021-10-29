@@ -1,5 +1,5 @@
 // VOORRAAD ARRAY MET TV'S
-const inventory5 = [
+const inventoryBonus = [
     {
         type: '43PUS6504/12',
         name: '4K TV',
@@ -164,84 +164,43 @@ const inventory5 = [
 
 //-------------------------------------------------------------
 
-//5a
-function fullNameFormatter (stock, indexNumber) {
-    return stock[indexNumber].brand + ' ' + stock[indexNumber].type + ' - ' + stock[indexNumber].name;
+console.log('Bonusopdracht');
+//Hieronder is zowel de return gebruikt voor de webpagina als een console.log
+//De opdracht vraag om een resultaat in de console.log, dus dat zou afdoende zijn
+//Een webpagina zou meer gebaat zijn bij een return ...
+//Beide dus maar in tact gelaten.
+
+
+//Sort on price
+function sortedOnPrice() {
+    let sortedOnPrice = inventoryBonus.sort((a, b) =>
+        { return a.price-b.price;})
+    console.log(sortedOnPrice);
+    return sortedOnPrice
 }
 
-console.log('\n' + '5a --------------- ');
-console.log(fullNameFormatter(inventory5,0));
-console.log(fullNameFormatter(inventory5,2));
+const buttonElement1 = document.getElementById('sort-on-price');
+buttonElement1.addEventListener('click', sortedOnPrice);
 
-//5b
-function priceFormatter (price) {
-    //prijs zou decimalen kunnen bevatten dus:
-    if (price - Math.floor(price) != 0) {
-        // console.log('met decimalen');
-        return '€' + price;
-    } else {
-        // console.log('zonder  decimalen');
-        return '€' + price + ',-';
-    }
+//Ambilights
+function ambilights () {
+    let allAmbiLights = inventoryBonus.filter(inventoryBonus =>
+        inventoryBonus.options.ambiLight == true);
+    console.log(allAmbiLights);
+    return allAmbiLights;
 }
 
-console.log('\n' + '5b --------------- ');
-console.log(priceFormatter(500.45));
-console.log(priceFormatter(500));
+const buttonElement2 = document.getElementById('ambilight');
+buttonElement2.addEventListener('click', ambilights);
 
-//5c
-console.log('----');
-function availableSizesFormatter(list) {
-    let availableSizesFormatted = '';
-    for (let i = 0; i < list.length; i++) {
-        sizeInCm = Math.floor(list[i]*2.54);
-        availableSizesFormatted += list[i] + ' inch ' + ' (' + sizeInCm + ' cm) ';
-        // voeg | toe behalve voor de laatste
-        if (i < list.length -1) {
-            availableSizesFormatted += ' | ';
-        }
-    }
-    return availableSizesFormatted;
+
+//Sold out
+function notOnStock() {
+    let notOnStock = inventoryBonus.filter(inventoryBonus =>
+        inventoryBonus.originalStock === inventoryBonus.sold);
+    console.log(notOnStock);
+    return notOnStock;
 }
 
-console.log('\n' + '5c --------------- ');
-console.log(availableSizesFormatter(inventory5[0].availableSizes));
-console.log(availableSizesFormatter(inventory5[1].availableSizes));
-console.log(availableSizesFormatter(inventory5[2].availableSizes));
-
-
-//5d
-console.log('\n' + '5d --------------- ');
-console.log(fullNameFormatter(inventory5, 0));
-console.log(priceFormatter(inventory5[0].price));
-console.log(availableSizesFormatter(inventory5[0].availableSizes));
-
-document.getElementById('formattedTVinfoName').innerHTML = `${fullNameFormatter(inventory5, 0)}`;
-document.getElementById('formattedTVinfoPrice').innerHTML = `${priceFormatter(inventory5[0].price)}`;
-document.getElementById('formattedTVinfoAvailableSizes').innerHTML = `${availableSizesFormatter(inventory5[0].availableSizes)}`;
-
-
-//5e
-console.log('\n' + '5e --------------- ');
-function tvGenerator(inventory, i) {
-    //note voor mijzelf: gebruik '\n' voor de console, maar <br>  voor html
-        return  [fullNameFormatter(inventory, i) + "<br>" +
-                priceFormatter(inventory[i].price) + "<br>" +
-                availableSizesFormatter(inventory[i].availableSizes) + "<br>" + "<br>"];
-    }
-
-
-for (let i = 0; i < inventory5.length; i++) {
-    console.log(tvGenerator(inventory5, i));
-}
-
-let formattedTvList = '';
-for (let i = 0; i < inventory5.length; i++) {
-    formattedTvList += tvGenerator(inventory5, i);
-}
-console.log('***********')
-console.log(formattedTvList);
-document.getElementById('alleFormatted').innerHTML = `${formattedTvList}`;
-
-
-
+const buttonElement3 = document.getElementById('sold-out');
+buttonElement3.addEventListener('click', notOnStock);

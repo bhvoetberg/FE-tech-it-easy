@@ -189,6 +189,7 @@ function purchasedTVs (inventory2) {
     }
     return amount;
 }
+console.log('\n' + '2c --------------- ');
 console.log(purchasedTVs(inventory2));
 
 //2d
@@ -196,6 +197,9 @@ const tvspurchased = document.getElementById('amount-purchased');
 tvspurchased.innerHTML = `Er zijn ${purchasedTVs(inventory2)} TV's ingekocht.`;
 
 //2e
-const numberOnStock = purchasedTVs(inventory2) - soldTVs(inventory2);
+function totalAvailableStock(inventory2) {
+    return numberOnStock = purchasedTVs(inventory2) - soldTVs(inventory2);
+}
+
 const tvsonstock = document.getElementById('amount-onstock');
-tvsonstock.innerHTML = `Er zijn nog ${numberOnStock} TV's op voorraad.`;
+tvsonstock.innerHTML = `Er zijn nog ${totalAvailableStock(inventory2)} TV's op voorraad.`;

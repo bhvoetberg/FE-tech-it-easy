@@ -171,6 +171,10 @@ const allBrands = inventory3.map((stock) => {
 console.log('\n' + '3a --------------- ');
 console.log(allBrands);
 
+// const allTVs = document.getElementById('allTVs');
+// allTVs.innerHTML = `${allBrands}`;
+document.getElementById('allTVs').innerHTML = `${allBrands}`;
+
 //4b
 function listAllBrands(inventory3) {
     const list = inventory3.map((stock) => {
