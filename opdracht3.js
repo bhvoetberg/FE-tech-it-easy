@@ -168,6 +168,7 @@ const inventory3 = [
 const allBrands = inventory3.map((stock) => {
     return stock.brand
 })
+console.log('\n' + '3a --------------- ');
 console.log(allBrands);
 
 //4b
@@ -177,6 +178,6 @@ function listAllBrands(inventory3) {
     });
     return list;
 }
-
+console.log('\n' + '4b --------------- ');
 console.log(listAllBrands(inventory3));
 

@@ -173,6 +173,7 @@ function soldTVs (inventory2) {
     }
     return amount;
 }
+console.log('\n' + '2a --------------- ');
 console.log(soldTVs(inventory2));
 
 //2b

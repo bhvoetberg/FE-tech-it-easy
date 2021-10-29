@@ -169,6 +169,7 @@ function fullNameTV (stock, indexNumber) {
     return stock[indexNumber].brand + ' ' + stock[indexNumber].type + ' - ' + stock[indexNumber].name;
 }
 
+console.log('\n' + '5a --------------- ');
 console.log(fullNameTV(inventory5,0));
 console.log(fullNameTV(inventory5,2));
 
@@ -184,23 +185,53 @@ function tvPriceFormatter (price) {
     }
 }
 
-
+console.log('\n' + '5b --------------- ');
 console.log(tvPriceFormatter(500.45));
 console.log(tvPriceFormatter(500));
 
 //5c
 console.log('----');
-// function availableSizesFormatter(list) {
-//     console.log((list));
-//     availableSizesFormatted = '';
-//     for (let i = 0; i < list.length; i++) {
-//         sizeInCm = Math.floor(list.)
-//         availalbeSizesFormatted += 'list'
-//     }
-//     return availableSizesFormatted;
-//
-// }
-// availableSizesFormatter(inventory5[0].availableSizes);
+function availableSizesFormatter(list) {
+    let availableSizesFormatted = '';
+    for (let i = 0; i < list.length; i++) {
+        sizeInCm = Math.floor(list[i]*2.54);
+        availableSizesFormatted += list[i] + ' inch ' + ' (' + sizeInCm + ' cm) ';
+        // voeg | toe behalve voor de laatste
+        if (i < list.length -1) {
+            availableSizesFormatted += ' | ';
+        }
+    }
+    return availableSizesFormatted;
+
+}
+
+console.log('\n' + '5c --------------- ');
+console.log(availableSizesFormatter(inventory5[0].availableSizes));
+console.log(availableSizesFormatter(inventory5[1].availableSizes));
+console.log(availableSizesFormatter(inventory5[2].availableSizes));
+
+
+//5d
+console.log('\n' + '5d --------------- ');
+console.log(fullNameTV(inventory5, 0));
+console.log(tvPriceFormatter(inventory5[0].price));
+console.log(availableSizesFormatter(inventory5[0].availableSizes));
+
+
+//5e
+console.log('\n' + '5e --------------- ');
+function tvGenerator(inventory, i) {
+        return  fullNameTV(inventory, i) + '\n' +
+                tvPriceFormatter(inventory[i].price) + '\n' +
+                availableSizesFormatter(inventory[i].availableSizes) + '\n' + '\n';
+    }
+
+
+for (let i = 0; i < inventory5.length; i++) {
+    console.log(tvGenerator(inventory5, i));
+}
+
+
 
 
 

@@ -171,18 +171,21 @@ const inventory1 = [
 const types = inventory1.map((stock1a) => {
     return stock1a.type
 })
+console.log('\n' + '1a --------------- ');
 console.log(types);
 
 //1b
 const soldOut = inventory1.filter((stock1b) => {
     return stock1b.sold === stock1b.originalStock;
 })
+console.log('\n' + '1b --------------- ');
 console.log(soldOut);
 
 //1c
 const ambilight = inventory1.filter((stock1c) => {
     return stock1c.options.ambiLight = true;
 })
+console.log('\n' + '1c --------------- ');
 console.log(ambilight);
 
 
@@ -190,4 +193,5 @@ console.log(ambilight);
 const priceSort = inventory1.sort((a, b) => {
     return a.price-b.price;
 })
+console.log('\n' + '1d --------------- ');
 console.log(priceSort);
